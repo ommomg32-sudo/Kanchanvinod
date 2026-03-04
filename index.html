@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanchan ❤️ Vinod</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+background: linear-gradient(-45deg,#ff4e8b,#ff6ec7,#ff9a9e,#fad0c4);
+background-size:400% 400%;
+animation: gradientBG 12s ease infinite;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+text-align:center;
+}
+
+@keyframes gradientBG{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.container{
+background:rgba(0,0,0,0.5);
+padding:30px;
+border-radius:20px;
+backdrop-filter:blur(15px);
+max-width:900px;
+box-shadow:0 0 40px rgba(255,255,255,0.4);
+}
+
+h1{
+font-family:'Great Vibes',cursive;
+font-size:55px;
+margin-bottom:15px;
+animation:glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow{
+from{text-shadow:0 0 10px #fff;}
+to{text-shadow:0 0 30px #ff4e8b;}
+}
+
+.shayari{
+margin:15px 0;
+font-size:18px;
+line-height:1.7;
+}
+
+.slideshow{
+margin-top:15px;
+}
+
+.slideshow img{
+width:250px;
+height:300px;
+border-radius:15px;
+object-fit:cover;
+box-shadow:0 0 20px pink;
+}
+
+button{
+margin-top:15px;
+padding:10px 25px;
+border:none;
+border-radius:25px;
+background:#ff4e8b;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:white;
+color:#ff4e8b;
+}
+
+.heart{
+position:absolute;
+bottom:-10px;
+color:white;
+animation:floatUp 6s linear infinite;
+}
+
+@keyframes floatUp{
+0%{transform:translateY(0);opacity:1;}
+100%{transform:translateY(-100vh);opacity:0;}
+}
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+display:flex;
+justify-content:center;
+align-items:center;
+visibility:hidden;
+}
+
+.popup-content{
+background:white;
+color:black;
+padding:30px;
+border-radius:15px;
+text-align:center;
+}
+
+.popup button{
+margin:10px;
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<div class="container">
+
+<h1>Kanchan ❤️ Vinod</h1>
+
+<div class="shayari">
+jab pehli baar tumhe dekha tha,<br>
+Dil chupke se muskura diya tha... 💖<br><br>
+Tumhari sharmili si muskaan ne,<br>
+Mujhe apna deewana bana diya tha. 🌸<br><br>
+mera dil sirf tumhara hai,<br>
+Aur tum hi meri pehli aur aakhri mohabbat ho. ❤️
+</div>
+
+<div class="slideshow">
+<img id="slide" src="photo/image3.jpg">
+</div>
+
+<button onclick="openPopup()">Will You Be Mine Forever? 💍</button>
+
+</div>
+
+<div class="popup" id="popup">
+<div class="popup-content">
+<h2>Will You Be Mine Forever? ❤️</h2>
+<button onclick="yesLove()">Yes 💖</button>
+<button onclick="closePopup()">No 😢</button>
+</div>
+</div>
+
+<script>
+const images = [
+"photo/image3.jpg"
+];
+
+let i=0;
+setInterval(()=>{
+i=(i+1)%images.length;
+document.getElementById("slide").src=images[i];
+},3000);
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=Math.random()*20+10+"px";
+document.body.appendChild(heart);
+setTimeout(()=>{heart.remove();},6000);
+}
+setInterval(createHeart,300);
+
+function openPopup(){
+document.getElementById("popup").style.visibility="visible";
+}
+
+function closePopup(){
+document.getElementById("popup").style.visibility="hidden";
+}
+
+function yesLove(){
+alert("Yayyy ❤️ Kanchan said YES! 💍✨");
+}
+</script>
+
+</body>
+</html>
